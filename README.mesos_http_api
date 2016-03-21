@@ -1,0 +1,21 @@
+==================
+::MESOS HTTP API::
+==================
+Code to check if a particular slave has registered with mesos cluster, given
+its private IP
+
+-----------
+::Testing::
+-----------
+Cluster leader, valid slave IP
+time ./mesos_client_service --mip 52.205.254.6 --mport 5050 --mapi "/state" -sip 172.31.34.90
+
+Cluster leader, invalid slave IP
+time ./mesos_client_service --mip 52.205.254.6 --mport 5050 --mapi "/state" -sip 172.31.34.9
+
+Cluster follower, valid slave IP
+time ./mesos_client_service --mip 52.90.239.11 --mport 5050 --mapi "/state" -sip 172.31.34.90
+
+Cluster follower, invalid slave IP
+time ./mesos_client_service --mip 52.90.239.11 --mport 5050 --mapi "/state" -sip 172.31.34.9
+
